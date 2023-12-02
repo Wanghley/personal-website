@@ -149,10 +149,11 @@
     transition: 0.3s ease-in-out;
     font-size: 1.1rem;
     border-width: 0;
+    cursor: pointer;
 }
 
-.contact_button input {
-    background-color: none;
+.contact_button:hover {
+    background-color: rgb(33, 100, 138);;
     color: #fff;
     border-radius: 8px;
     width: 210px;
@@ -162,4 +163,10 @@
     transition: 0.3s ease-in-out;
     font-size: 1.1rem;
     border-width: 0;
+}
+
+.contact_button .contact__icon {
+    content: "\f178";
+    margin-right: 1rem;
+    font-size: 1.5rem;
 }

@@ -3,8 +3,17 @@ import './css/Contact.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faPhone, faLocationDot, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin, faInstagram, faGithub } from '@fortawesome/free-brands-svg-icons';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+        alert("Your message has been sent!");
+        console.log(process.env.REACT_APP_emailjs_service_id);
+        emailjs.sendForm(process.env.REACT_APP_emailjs_service_id, process.env.REACT_APP_emailjs_template_id, e.target, process.env.REACT_APP_emailjs_public_key);
+    }
+
     return (
         <div className='contact'>
             <div className='contact_text'>
@@ -37,14 +46,11 @@ const Contact = () => {
                 </ul>
             </div>
             <div className='contact_form'>
-                <form action='https://formspree.io/f/mrgoqzjv' method='POST'>
-                    <input type='text' name='name' placeholder='Your name' className='contact__input' />
-                    <input type='email' name='email' placeholder='Your e-mail' className='contact__input' />
+                <form onSubmit={sendEmail}>
+                    <input type='text' name='from_name' placeholder='Your name' className='contact__input' />
+                    <input type='email' name='email_from' placeholder='Your e-mail' className='contact__input' />
                     <textarea name='message' placeholder='Your message' className='contact__input contact__input--textarea'></textarea>
-                    <div className='contact_button'>
-                        <FontAwesomeIcon icon={faPaperPlane} className='contact__icon' />
-                        <input type='submit' value='Send' className='contact__input contact__input--submit' />
-                    </div>
+                    <button type='submit' className='contact_button'><FontAwesomeIcon icon={faPaperPlane} className='contact__icon' />Send</button>
                 </form>
             </div>
         </div>

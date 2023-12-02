@@ -21,21 +21,42 @@ ChartJS.register(
 );
 
 const SKillRadarChart = () => {
+    const baseURL = 'https://cms.wanghley.com/api/skills'
     const [chart, setChart] = useState(null);
-    var baseURL = 'https://cms.wanghley.com/api/skills'
+    const [nextPage, setNextPage] = useState(1);
 
     useEffect(() => {
-        axios.get(baseURL)
-            .then(function (response) {
-                // console.log(response.data)
-                setChart(response.data)
-            })
-            .catch(function (error) {
-                console.log(error)
-            })
-    }, [baseURL,]);
+        const fetch = async () => {
+            if(nextPage){
+                try {
+                var url = baseURL + '?pagination[page]=' + nextPage
+                const response = await axios.get(url);
+                // Combine the data from the current page with the existing chart data
+                setChart(prevChart => {
+                    if(!prevChart) return response.data;
+                    return {
+                        ...response.data,
+                        data: [
+                            ...prevChart.data,
+                            ...response.data.data,
+                        ]
+                    }
+                })
+                if (response.data.meta.pagination.pageCount <= nextPage) {
+                    setNextPage(null);
+                  } else {
+                    setNextPage(nextPage + 1);
+                  }
+                } catch (e) {
+                    console.log(e);
+                }
+            }
+        };
+        fetch();
+    }, [nextPage,]);
 
     if (!chart) return null;
+    
 
     // Map proficiency levels to numerical values
     const proficiencyMapping = {
@@ -70,19 +91,32 @@ const SKillRadarChart = () => {
         }
     });
 
-    console.log(countsByTypeAndProficiency)
+    const proficiencyPercentagesByType = {};
+    Object.keys(countsByTypeAndProficiency).forEach(type => {
+        const proficiencyCounts = countsByTypeAndProficiency[type];
+        let total = 0;
+        let sumProficiencyValues = 0;
+        
+        Object.keys(proficiencyCounts).forEach(proficiency => {
+            const count = proficiencyCounts[proficiency];
+            const proficiencyValue = proficiencyMapping[proficiency];
+            total += count;
+            sumProficiencyValues += count * proficiencyValue;
+        });
 
-    // Count by type and proficiency level
-    // Initialize an object to store counts by type and proficiency level
-    
+        const averageProficiency = total!=0?sumProficiencyValues / total:0;
+        // normalize the average proficiency to a scale of 0 to 100
+        const normalizedAverageProficiency = Math.round(averageProficiency * 100 / 4);
 
-    
+        proficiencyPercentagesByType[type] = normalizedAverageProficiency;
+    });
 
+    // console.log(proficiencyPercentagesByType)
 
     var data = {
-        labels: [],
+        labels: Object.keys(proficiencyPercentagesByType),
         datasets: [{
-            data: [],
+            data: Object.values(proficiencyPercentagesByType),
             backgroundColor: 'rgba(58, 175, 241, 0.3)',
             borderColor: 'rgba(58, 175, 241, 1)',
             borderWidth: 1.5,

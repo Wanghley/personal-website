@@ -1,7 +1,7 @@
 import React from 'react'
 import './css/Contact.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faPhone, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faPhone, faLocationDot, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin, faInstagram, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 const Contact = () => {
@@ -41,8 +41,8 @@ const Contact = () => {
                     <input type='text' name='name' placeholder='Your name' className='contact__input' />
                     <input type='email' name='email' placeholder='Your e-mail' className='contact__input' />
                     <textarea name='message' placeholder='Your message' className='contact__input contact__input--textarea'></textarea>
-                    <div className='contact__button'>
-                        <FontAwesomeIcon icon={faEnvelope} className='contact__icon' />
+                    <div className='contact_button'>
+                        <FontAwesomeIcon icon={faPaperPlane} className='contact__icon' />
                         <input type='submit' value='Send' className='contact__input contact__input--submit' />
                     </div>
                 </form>

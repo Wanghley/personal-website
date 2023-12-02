@@ -1,3 +1,5 @@
+@import url("./global.css");
+
 .contact {
     display: flex;
     padding: 5rem 5rem;
@@ -109,4 +111,55 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    padding: 3rem 2.5rem;
+}
+.contact_form form input {
+    width: 100%;
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+    border-width: 0;
+    font-size: 1rem;
+    border-bottom: 3px solid #3AAFF1;
+    font-family: "OpenSans";
+}
+.contact_form form textarea {
+    width: 100%;
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+    border-width: 0;
+    font-size: 1rem;
+    border-bottom: 3px solid #3AAFF1;
+    min-height: 10rem;
+    font-family: "OpenSans";
+    resize: none;
+}
+
+.contact_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: #46A5DD;
+    color: #fff;
+    border-radius: 8px;
+    width: 210px;
+    height: 55px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s ease-in-out;
+    font-size: 1.1rem;
+    border-width: 0;
+}
+
+.contact_button input {
+    background-color: none;
+    color: #fff;
+    border-radius: 8px;
+    width: 210px;
+    height: 55px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s ease-in-out;
+    font-size: 1.1rem;
+    border-width: 0;
 }

@@ -11,6 +11,11 @@
     font-weight: bold;
 }
 
+@font-face {
+    font-family: "OpenSans";
+    src: url("../../fonts/OpenSans-VariableFont_wdth\,wght.ttf") format("truetype");
+}
+
 /* create var with color standard */
 :root {
     --color-primary: #46A5DD;

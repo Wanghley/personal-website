@@ -1,0 +1,79 @@
+@font-face {
+    font-family: "LostinSpace";
+    src: local("LostinSpace"),
+    url("../../fonts/Lost\ In\ Space\ Regular.ttf") format("truetype");
+    font-weight: regular;
+}
+@font-face {
+    font-family: "Nunito";
+    src: local("Nunito"),
+    url("../../fonts/Nunito-VariableFont_wght.ttf") format("truetype");
+    font-weight: bold;
+}
+
+.hero{
+    background-image: url('../../assets/hero.png');
+    height: 100vh;
+    position: relative;
+    top: -110px;
+    z-index: -1;
+    background-size:cover;
+    padding-top: 110px;
+    color: #fff;
+    
+}
+.spacer{
+    width: 50%;
+    float: left;
+    padding: 20px;
+}
+.text{
+    width: 50%;
+    float: left;
+    padding-top: 14vh;
+}
+
+.text h1{
+    font-family: "LostinSpace";
+    font-size: 74px;
+    padding: 5px 0;
+}
+.text h2{
+    font-family: "Nunito";
+    font-size: 1.1rem;
+    color: #46A5DD;
+    font-weight: bold;
+    padding-bottom: 60px;
+}
+
+.text p{
+    line-height: 2rem;
+    padding-bottom: 40px;
+}
+
+.hero-button{
+    background-color: #46A5DD;
+    color: #fff;
+    border-radius: 8px;
+    width: 210px;
+    height: 55px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s ease-in-out;
+    font-size: 1.1rem;
+    border-width: 0;
+}
+
+.hero-button:not(:last-child) {
+    content: "";
+    margin-right: 50px;
+}
+
+.secondary{
+    background-color: #525252;
+    cursor: pointer;
+}
+
+.secondary:hover{
+    background-color: #46A5DD;
+}

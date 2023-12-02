@@ -7,9 +7,11 @@ import twitter from '../assets/twitter.svg'
 import hamburguer from '../assets/hamburger.svg'
 import xmark from '../assets/xmark.svg'
 import './css/Navbar.css'
+import { useState } from 'react'
 // import { navLinks } from '../constants'
 
 class Navbar extends Component{
+
   state = {clicked:false};
 
   handleClick = () => {
@@ -21,7 +23,7 @@ class Navbar extends Component{
     <nav>
       <a href='/'><img className='logo' src={logo} alt='wanghley'/></a>
       <div className='menu'>
-        <ul id='navbar'>
+        <ul id='navbar' className={this.state.clicked?"#navbar active":"#navbar"}>
           <li className='menu-item'><a href='/about'>About</a></li>
           <li className='menu-item'><a href='/CV'>CV</a></li>
           <li className='menu-item'><a href='/portfolio'>Portfolio</a></li>

@@ -1,14 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-import { Navbar } from './components'
+import { Navbar, Hero } from './components'
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <header className="App-header">
-      </header>
-    </div>
+    <><Navbar />
+    <Hero />
+    </>
   );
 }
 

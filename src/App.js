@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { Navbar, Hero, About } from './components'
+import { Navbar, Hero, About, Contact } from './components'
 
 function App() {
   return (
@@ -8,6 +8,7 @@ function App() {
     <Navbar />
     <Hero />
     <About />
+    <Contact />
     </>
   );
 }

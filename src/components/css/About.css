@@ -45,7 +45,7 @@
 .about-image img {
     height: 85vh;
     object-fit:fill;
-    padding-bottom: .5rem;
+    padding-bottom: 2rem;
 }
 
 .about-image img:hover {

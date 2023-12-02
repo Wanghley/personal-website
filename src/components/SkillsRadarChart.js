@@ -9,6 +9,7 @@ import {
     Legend,
 } from "chart.js";
 import { Radar } from "react-chartjs-2";
+import axios from "axios";
 
 ChartJS.register(
     RadialLinearScale,
@@ -20,89 +21,101 @@ ChartJS.register(
 );
 
 const SKillRadarChart = () => {
-    const [chart, setChart] = useState([]);
+    const [chart, setChart] = useState(null);
     var baseURL = 'https://cms.wanghley.com/api/skills'
+
     useEffect(() => {
-        const getSkills = async () => {
-            await fetch(baseURL, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    
-                }
-            }).then((response) => {
-                // Code to handle response
-                response.json().then((json) => {
-                    // console.log(json.data);
-                    setChart(json.data);
-                    // console.log(chart);
-                });
-            }).catch((error) => {
-                console.log(error);
-            });
-        }
-        getSkills();
+        axios.get(baseURL)
+            .then(function (response) {
+                // console.log(response.data)
+                setChart(response.data)
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
     }, [baseURL,]);
 
-const typeCounts = {};
+    if (!chart) return null;
 
-// Iterate over the array
-chart.forEach(item => {
-  const type = item.attributes.Type;
+    // Map proficiency levels to numerical values
+    const proficiencyMapping = {
+        "Basic": 1,
+        "Intermediate": 2,
+        "Advanced": 3,
+        "Proeficient": 4,  // Note: Correct the typo in the dataset
+    };
+    
+    // count by type
+    // Initialize an object to store counts by type
+    const countsByType = {};
+    // Iterate over the chart data
+    const countsByTypeAndProficiency = {};
+    // Iterate over the chart data
+    // console.log(chart)
 
-  // Check if the type is already in the counts object
-  if (typeCounts[type]) {
-    // Increment the count if it exists
-    typeCounts[type]++;
-  } else {
-    // Initialize the count to 1 if it doesn't exist
-    typeCounts[type] = 1;
-  }
-});
+    // iterate over each element on the chart
+    console.log(chart)
+    chart.data.forEach(element => {
+        const type = element.attributes.Type;
+        const proficiency = element.attributes.Expertise;
+        const proficiencyValue = proficiencyMapping[proficiency];
 
-// sum of numerical values in the typeCounts
-const sum = Object.values(typeCounts).reduce((a, b) => a + b);
-// calculate the percentage of each type
-const percentages = Object.values(typeCounts).map(count => count / sum * 100);
-
-var data = {
-    labels: [...new Set(chart.map(item => item.attributes.Type))],
-    datasets: [{
-        data: percentages,
-        backgroundColor: 'rgba(58, 175, 241, 0.3)',
-        borderColor: 'rgba(58, 175, 241, 1)',
-        borderWidth: 1.5,
-        pointRadius: 2,
-        pointBackgroundColor: 'rgba(58, 175, 241, 1)',
-    }]
-}
-
-var options = {
-    scales: {
-        r: {
-            angleLines: {
-                display: true
-            },
-            suggestedMin: 50,
-            suggestedMax: 100
+        if(!countsByTypeAndProficiency[type]) {
+            countsByTypeAndProficiency[type] = {};
         }
-    },
-    plugins: {
-        legend: {
-            display: false,
+        if(countsByTypeAndProficiency[type][proficiency] === undefined) {
+            countsByTypeAndProficiency[type][proficiency] = 1;
+        }else{
+            countsByTypeAndProficiency[type][proficiency] += 1;
         }
+    });
+
+    console.log(countsByTypeAndProficiency)
+
+    // Count by type and proficiency level
+    // Initialize an object to store counts by type and proficiency level
+    
+
+    
+
+
+    var data = {
+        labels: [],
+        datasets: [{
+            data: [],
+            backgroundColor: 'rgba(58, 175, 241, 0.3)',
+            borderColor: 'rgba(58, 175, 241, 1)',
+            borderWidth: 1.5,
+            pointRadius: 2,
+            pointBackgroundColor: 'rgba(58, 175, 241, 1)',
+        }]
     }
-};
 
-return (
-    <div>
-        <Radar
-            data={data}
-            options={options}
-        />
-    </div>
-)
+    var options = {
+        scales: {
+            r: {
+                angleLines: {
+                    display: true
+                },
+                suggestedMin: 50,
+                suggestedMax: 100
+            }
+        },
+        plugins: {
+            legend: {
+                display: false,
+            }
+        }
+    };
+
+    return (
+        <div>
+            <Radar
+                data={data}
+                options={options}
+            />
+        </div>
+    )
 }
 
 export default SKillRadarChart;

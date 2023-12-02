@@ -86,15 +86,15 @@ img.logo {
         justify-content: flex-start;
         position: fixed;
         top: 90px;
-        right: -300px;
-        width: 200px;
+        right: -70vw;
+        width: 70vw;
         height: 100vh;
-        background-color: #31313167;
+        background-color: #313131f2;
         padding: 40px 0 0 10px;
         transition: 0.3s ease-in-out;
     }
     #navbar.active{
-        right: -0px;
+        right: 0vw;
     }
     #navbar li {
         margin-bottom: 25px;

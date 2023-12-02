@@ -1,0 +1,61 @@
+@font-face {
+    font-family: "LostinSpace";
+    src: local("LostinSpace"),
+    url("../../fonts/Lost\ In\ Space\ Regular.ttf") format("truetype");
+    font-weight: regular;
+}
+@font-face {
+    font-family: "Nunito";
+    src: local("Nunito"),
+    url("../../fonts/Nunito-VariableFont_wght.ttf") format("truetype");
+    font-weight: bold;
+}
+
+/* create var with color standard */
+:root {
+    --color-primary: #46A5DD;
+    --color-primary-hover: #21648A;
+    --color-secondary: #525252;
+    --color-secondary-hover: #2e2e2e;
+}
+
+.primary-button{
+    background-color: #46A5DD;
+    color: #fff;
+    border-radius: 8px;
+    width: 210px;
+    height: 55px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s ease-in-out;
+    font-size: 1.1rem;
+    border-width: 0;
+}
+
+.primary-button:not(:last-child) {
+    content: "";
+    margin-right: 50px;
+}
+
+.primary-button:hover{
+    background-color: rgb(33, 100, 138);
+    cursor: pointer;
+}
+
+.secondary-button{
+    background-color: #525252;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 8px;
+    width: 210px;
+    height: 55px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s ease-in-out;
+    font-size: 1.1rem;
+    border-width: 0;
+}
+
+.secondary-button:hover{
+    background-color: #2e2e2e;
+}

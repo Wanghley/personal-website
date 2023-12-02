@@ -1,0 +1,59 @@
+@import url('./global.css');
+
+.about {
+    display: flex;
+    justify-content: center;
+    padding: 0 5rem;
+    /* margin-top: -2rem; */
+    /* space between items */
+
+}
+
+.about-text {
+    min-width: 50%;
+    padding: 0 5rem;
+}
+
+.about-text h1 {
+    font-family: "LostinSpace";
+    font-size: 3rem;
+    text-transform: uppercase;
+    padding-bottom: 1rem;
+    padding-top: -2rem;
+}
+
+.about-text h2 {
+    font-family: "Nunito";
+    font-size: 1.2rem;
+    padding-bottom: 1.5rem;
+}
+
+.about-text p {
+    line-height: 1.5rem;
+    padding-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+.about-image {
+    display: flex;
+    justify-content: center;
+}
+.about-image img {
+    height: 85vh;
+    object-fit:fill;
+    padding-bottom: .5rem;
+}
+
+.about-image img:hover {
+    cursor: pointer;
+    transform: scale(1.025);
+    transition: 0.15s ease-in-out;
+}
+
+.secondary-button {
+    height: 40px;
+    width: 150px;
+    margin-bottom: 2rem;
+    font-weight: 500;
+    font-size: 1rem;
+}

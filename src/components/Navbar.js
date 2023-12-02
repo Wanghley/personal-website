@@ -7,8 +7,6 @@ import twitter from '../assets/twitter.svg'
 import hamburguer from '../assets/hamburger.svg'
 import xmark from '../assets/xmark.svg'
 import './css/Navbar.css'
-import { useState } from 'react'
-// import { navLinks } from '../constants'
 
 class Navbar extends Component{
 

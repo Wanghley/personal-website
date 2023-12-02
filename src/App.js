@@ -4,7 +4,8 @@ import { Navbar, Hero } from './components'
 
 function App() {
   return (
-    <><Navbar />
+    <>
+    <Navbar />
     <Hero />
     </>
   );

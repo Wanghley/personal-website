@@ -79,7 +79,7 @@ const SKillRadarChart = () => {
         "Basic": 1,
         "Intermediate": 2,
         "Advanced": 3,
-        "Proeficient": 4,  // Note: Correct the typo in the dataset
+        "Proficient": 4,  // Note: Correct the typo in the dataset
     };
 
     // Iterate over the chart data
@@ -115,15 +115,16 @@ const SKillRadarChart = () => {
             total += count;
             sumProficiencyValues += count * proficiencyValue;
         });
-
-        const averageProficiency = total !== 0 ? sumProficiencyValues / total : 0;
+        // console log the total and sumProficiencyValues and object key in the same line
+        console.log(total, sumProficiencyValues, type)
+        const averageProficiency = total != 0 ? sumProficiencyValues / total : 0;
         // normalize the average proficiency to a scale of 0 to 100
         const normalizedAverageProficiency = Math.round(averageProficiency * 100 / 4);
 
         proficiencyPercentagesByType[type] = normalizedAverageProficiency;
     });
 
-    console.log(proficiencyPercentagesByType)
+    // console.log(proficiencyPercentagesByType)
 
     var data = {
         labels: Object.keys(proficiencyPercentagesByType),
@@ -138,20 +139,28 @@ const SKillRadarChart = () => {
     }
 
     var options = {
-        scales: {
-            r: {
-                angleLines: {
-                    display: true
-                },
-                suggestedMin: 50,
-                suggestedMax: 100
-            }
-        },
         plugins: {
             legend: {
                 display: false,
             }
-        }
+        },
+        scale: {
+            angleLines: {
+              display: true,
+              color: 'rgba(0, 0, 0, 0.1)'
+            },
+            pointLabels: {
+              fontSize: 14,
+              fontColor: '#666'
+            },
+            ticks: {
+              beginAtZero: true,
+              stepSize: 20
+            },
+            circular: true // Set circular to true to make it a circular radar chart
+          },
+          responsive: true,
+          maintainAspectRatio: false
     };
 
     return (

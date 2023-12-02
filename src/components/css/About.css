@@ -28,6 +28,10 @@
     padding-bottom: 1.5rem;
 }
 
+.about-text img {
+    display: none;
+}
+
 .about-text p {
     line-height: 1.5rem;
     padding-bottom: 1.5rem;
@@ -56,4 +60,46 @@
     margin-bottom: 2rem;
     font-weight: 500;
     font-size: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    .about-image {
+        display: none;
+    }
+    .about {
+        display: block;
+        padding: 0 1rem;
+    }
+    .about-text {
+        display: flex;
+        flex-direction: column;
+        padding: 0 1rem;
+        align-items: center;
+    }
+    .about-text h1 {
+        font-size: 2rem;
+    }
+    .about-text h2 {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+    .about-text img {
+        display: block;
+        width: 100%;
+        height: auto;
+        padding-bottom: 1rem;
+    }
+
+    .about-text p {
+        font-size: 1rem;
+        text-align: justify;
+    }
+
+    .secondary-button {
+        height: 50px;
+        width: 150px;
+        margin-bottom: 2rem;
+        font-weight: 500;
+        font-size: 1rem;
+    }
 }

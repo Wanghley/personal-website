@@ -1,4 +1,4 @@
-import {React, Component } from 'react'
+import {React, useState } from 'react'
 import logo from '../assets/logo-white.svg'
 import linkedin from '../assets/linkedin.svg'
 import instagram from '../assets/instagram.svg'
@@ -8,20 +8,30 @@ import hamburguer from '../assets/hamburger.svg'
 import xmark from '../assets/xmark.svg'
 import './css/Navbar.css'
 
-class Navbar extends Component{
+const Navbar = () => {
+  const [clicked, setClicked] = useState(false);
+  const [color, setColor] = useState(false);
 
-  state = {clicked:false};
+  // Change background color on scroll
+  const changeBackground = () => {
+    if(window.scrollY >= 90){
+      setColor(true);
+    }else{
+      setColor(false);
+    }
+  };
+  window.addEventListener('scroll', changeBackground);
 
-  handleClick = () => {
-    this.setState({clicked:!this.state.clicked})
+  // Change menu on click
+  const handleClick = () => {
+    setClicked(!clicked);
   };
 
-  render(){
   return (
-    <nav>
+    <nav className={color?'scrolled':''}>
       <a href='/'><img className='logo' src={logo} alt='wanghley'/></a>
       <div className='menu'>
-        <ul id='navbar' className={this.state.clicked?"#navbar active":"#navbar"}>
+        <ul id='navbar' className={clicked?"#navbar active":"#navbar"}>
           <li className='menu-item'><a href='/about'>About</a></li>
           <li className='menu-item'><a href='/CV'>CV</a></li>
           <li className='menu-item'><a href='/portfolio'>Portfolio</a></li>
@@ -36,10 +46,9 @@ class Navbar extends Component{
       </ul>
       </div>
       <div className='menu-mobile'>
-        <img id='bar' alt='menu' src={this.state.clicked?xmark:hamburguer} onClick={this.handleClick}/>
+        <img id='bar' alt='menu' src={clicked?xmark:hamburguer} onClick={handleClick}/>
       </div>
     </nav>
   )
-}
 }
 export default Navbar

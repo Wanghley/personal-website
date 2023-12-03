@@ -1,3 +1,8 @@
+*::-webkit-scrollbar {
+    width: 0
+  }
+  
+
 nav {
     display: flex;
     align-items: center;
@@ -9,9 +14,12 @@ nav {
     max-width: 100%;
 }
 
-.scrolled{
-    position: fixed;
+nav.scrolled {
+    background-color: #313131ed;
+    transition: 0.3s ease-in-out;
+    padding: 10px 5rem;
 }
+
 
 img.logo {
     height: 50px;

@@ -39,10 +39,10 @@ const Navbar = () => {
           <li className='menu-item'><a href='/contact'>Contact</a></li>
         </ul>
         <ul className='menu-social'>
-        <li className='menu-item-social'><a target='_blank' href='https://www.linkedin.com/in/wanghley/'><img alt='linkedin' src={linkedin}/></a></li>
-        <li className='menu-item-social'><a target='_blank' href='https://instagram.com/wanghley'><img alt='instagram' src={instagram}/></a ></li>
-        <li className='menu-item-social'><a target='_blank' href='https://github.com/Wanghley'><img alt='github' src={github}/></a></li>
-        <li className='menu-item-social'><a target='_blank' href='https://twitter.com/wanghley'><img alt='twitter' src={twitter}/></a></li>
+        <li className='menu-item-social'><a target='_blank' rel="noreferrer" href='https://www.linkedin.com/in/wanghley/'><img alt='linkedin' src={linkedin}/></a></li>
+        <li className='menu-item-social'><a target='_blank' rel="noreferrer" href='https://instagram.com/wanghley'><img alt='instagram' src={instagram}/></a ></li>
+        <li className='menu-item-social'><a target='_blank' rel="noreferrer" href='https://github.com/Wanghley'><img alt='github' rel="noreferrer" src={github}/></a></li>
+        <li className='menu-item-social'><a target='_blank' rel="noreferrer" href='https://twitter.com/wanghley'><img alt='twitter' src={twitter}/></a></li>
       </ul>
       </div>
       <div className='menu-mobile'>

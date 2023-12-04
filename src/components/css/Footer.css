@@ -1,0 +1,20 @@
+.footer_text {
+    display: flex;
+    align-items: center;
+    padding: 1rem 5rem;
+    /* Add space between elements */
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.footer_text_logo {
+    width: 10rem;
+}
+
+@media screen and (max-width: 768px) {
+    .footer_text {
+        flex-direction: column;
+        padding: 1rem 1rem;
+        font-size: 0.7rem;
+    }
+}

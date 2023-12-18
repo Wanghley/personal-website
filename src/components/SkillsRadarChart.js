@@ -9,7 +9,7 @@ import {
     Legend,
 } from "chart.js";
 import { Radar } from "react-chartjs-2";
-import axios from "axios";
+import {getUniqueElements} from "../api/skills";
 
 ChartJS.register(
     RadialLinearScale,
@@ -21,48 +21,24 @@ ChartJS.register(
 );
 
 const SKillRadarChart = () => {
-    const baseURL = process.env.REACT_APP_skills_api_url;
-    const [chart, setChart] = useState(null);
-    const [nextPage, setNextPage] = useState(1);
+    
+    const [uniqueElements, setUniqueElements] = useState(null);
 
-    useEffect(() => {
-        const fetch = async () => {
-            if (nextPage) {
-                try {
-                    var url = baseURL + '?pagination[page]=' + nextPage
-                    const response = await axios.get(url);
-                    // Combine the data from the current page with the existing chart data
-                    setChart(prevChart => {
-                        if (!prevChart) return response.data;
-                        return {
-                            ...response.data,
-                            data: [
-                                ...prevChart.data,
-                                ...response.data.data,
-                            ]
-                        }
-                    })
-                    if (response.data.meta.pagination.pageCount <= nextPage) {
-                        setNextPage(null);
-                    } else {
-                        setNextPage(nextPage + 1);
-                    }
-                } catch (e) {
-                    console.log(e);
-                }
-            }
-        };
-        fetch();
-    }, [nextPage,]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getUniqueElements();
+        setUniqueElements(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        // Handle the error as needed
+      }
+    };
 
-    if (!chart) return null;
-
-    // Use an object to keep track of unique elements by their id
-    const uniqueElements = chart.data.reduce((acc, currentEntry) => {
-        const { id, attributes } = currentEntry;
-        acc[id] = attributes;
-        return acc;
-    }, {});
+    fetchData();
+  }, []); // Empty dependency array to trigger the effect only once
+    console.log(uniqueElements)
+    if (!uniqueElements) return null;
 
     // Convert the object back to an array
     const uniqueArray = Object.keys(uniqueElements).map(id => ({
@@ -116,8 +92,8 @@ const SKillRadarChart = () => {
             sumProficiencyValues += count * proficiencyValue;
         });
         // console log the total and sumProficiencyValues and object key in the same line
-        console.log(total, sumProficiencyValues, type)
-        const averageProficiency = total != 0 ? sumProficiencyValues / total : 0;
+        // console.log(total, sumProficiencyValues, type)
+        const averageProficiency = total !== 0 ? sumProficiencyValues / total : 0;
         // normalize the average proficiency to a scale of 0 to 100
         const normalizedAverageProficiency = Math.round(averageProficiency * 100 / 4);
 
@@ -132,8 +108,8 @@ const SKillRadarChart = () => {
             data: Object.values(proficiencyPercentagesByType),
             backgroundColor: 'rgba(58, 175, 241, 0.3)',
             borderColor: 'rgba(58, 175, 241, 1)',
-            borderWidth: 1.5,
-            pointRadius: 2,
+            borderWidth: 2,
+            pointRadius: 5,
             pointBackgroundColor: 'rgba(58, 175, 241, 1)',
         }]
     }
@@ -150,17 +126,18 @@ const SKillRadarChart = () => {
               color: 'rgba(0, 0, 0, 0.1)'
             },
             pointLabels: {
-              fontSize: 14,
-              fontColor: '#666'
+              fontSize: 16,
+              fontColor: '#666',
+                fontStyle: 'bold'
             },
             ticks: {
-              beginAtZero: true,
-              stepSize: 20
+              beginAtZero: false,
+              stepSize: 25
             },
             circular: true // Set circular to true to make it a circular radar chart
           },
           responsive: true,
-          maintainAspectRatio: false
+          maintainAspectRatio: true,
     };
 
     return (
@@ -168,6 +145,7 @@ const SKillRadarChart = () => {
             <Radar
                 data={data}
                 options={options}
+                style={{ width: '100%', height: 'auto'}}  
             />
         </div>
     )

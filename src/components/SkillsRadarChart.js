@@ -21,7 +21,7 @@ ChartJS.register(
 );
 
 const SKillRadarChart = () => {
-    const baseURL = 'https://cms.wanghley.com/api/skills'
+    const baseURL = process.env.REACT_APP_skills_api_url;
     const [chart, setChart] = useState(null);
     const [nextPage, setNextPage] = useState(1);
 

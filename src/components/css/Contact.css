@@ -44,7 +44,6 @@
 
 .contact_list {
     text-decoration: none;
-    color: #3AAFF1;
     list-style: none;
     margin-bottom: 2rem;
 }
@@ -53,18 +52,24 @@
     margin-bottom: 1rem;
     padding: 1rem 1rem;
     width: 75%;
+    color: #3AAFF1;
 }
-.contact_list li.active {
+.contact_list li:hover {
     background-color: #570a5789;
     border-radius: 16px;
     border-color: #3AAFF1;
     border-style: solid;
-    border-width: 3px;
+    /* border-width: 3px; */
+    font-size: 1.1rem;
 }
 
-.contact_list li a{
-    text-decoration: none;
+.contact_list li span {
+    color: #fff;
     margin-left: 1rem;
+}
+
+.contact_list a{
+    text-decoration: none;
     color: #fff;
     font-size: 1.1rem;
 }

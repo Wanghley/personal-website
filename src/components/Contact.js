@@ -1,7 +1,7 @@
 import React from 'react'
 import './css/Contact.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faPhone, faLocationDot, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faPhone, faLocationDot, faPaperPlane, faHandshakeSimple } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin, faInstagram, faGithub } from '@fortawesome/free-brands-svg-icons';
 import emailjs from '@emailjs/browser';
 
@@ -18,20 +18,24 @@ const Contact = () => {
         <div className='contact'>
             <div className='contact_text'>
                 <h1 className='title'>Let's dive into something <span>EPIC</span> together:<br/></h1>
-                <h2 className='subtitle'>connect and let's conquer the <span>Awesome</span>!</h2>
+                <h2 className='subtitle'>connect and let's conquer the<span>Awesome</span>!</h2>
                 <ul className='contact_list'>
-                    <li className='contact_item'>
+                <a href='mailto:me@wanghley.com' className='contact__link'><li className='contact_item'>
                         <FontAwesomeIcon icon={faEnvelope} className='contact__icon' />
-                        <a href='mailto:me@wanghley.com' className='contact__link'>me@wanghley.com</a>
-                    </li>
-                    <li className='contact__item active'>
+                        <span>me@wanghley.com</span>
+                    </li></a>
+                    <a href='https://wa.me/19843120046' className='contact__link'><li className='contact__item active'>
                         <FontAwesomeIcon icon={faPhone} className='contact__icon' />
-                        <a href='https://wa.me/19843120046' className='contact__link'>+1 984 312 0046</a>
-                    </li>
-                    <li className='contact__item'>
+                        <span>+1 984 312 0046</span>
+                    </li></a>
+                    <a href='https://cal.com/wanghley' rel="noreferrer" target='_blank' className='contact__link'><li className='contact__item'>
+                        <FontAwesomeIcon icon={faHandshakeSimple} className='contact__icon' />
+                        <span>Schedule a call now!</span>
+                    </li></a>
+                    <a><li className='contact__item'>
                         <FontAwesomeIcon icon={faLocationDot} className='contact__icon' />
-                        <a href='https://wa.me/19843120046' className='contact__link'>All over the world, but living in Durham, NC, USA now</a>
-                    </li>
+                        <span>All over the world, but living in Durham, NC, USA now</span>
+                    </li></a>
                 </ul>
                 <ul className='social_media'>
                     <li className='social_item'>

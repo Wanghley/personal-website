@@ -15,10 +15,10 @@ const Contact = () => {
     }
 
     return (
-        <div className='contact'>
+        <div className='contact' id="contactme">
             <div className='contact_text'>
                 <h1 className='title'>Let's dive into something <span>EPIC</span> together:<br/></h1>
-                <h2 className='subtitle'>connect and let's conquer the<span>Awesome</span>!</h2>
+                <h2 className='subtitle'>connect and let's conquer the<span> Awesome</span>!</h2>
                 <ul className='contact_list'>
                 <a href='mailto:me@wanghley.com' className='contact__link'><li className='contact_item'>
                         <FontAwesomeIcon icon={faEnvelope} className='contact__icon' />

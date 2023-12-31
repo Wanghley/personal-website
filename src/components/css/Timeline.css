@@ -1,0 +1,97 @@
+@import url('./global.css');
+@import "rsuite/dist/rsuite.css";
+
+.Timeline {
+    display: flex;
+    flex-direction: column;
+    padding: 0 5rem;
+}
+.Timeline h1 {
+    font-family: "LostinSpace";
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+.Timeline h2 {
+    font-size: 1rem;
+    font-weight: 100;
+    text-align: left;
+    line-height: normal;
+    color: #969696;
+    margin: 0 10px;
+    padding: 0.5em 10px;
+    quotes: "\201C""\201D""\2018""\2019";
+    display: inline;
+    margin-bottom: 1rem;
+}
+
+.Timeline h2:before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+  }
+
+.Timeline-container {
+    height: 40vh;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-y: visible;
+    text-align: justify;
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.timeline-item {
+    display: flex;
+    flex-direction: row;
+}
+
+
+@media screen and (max-width: 768px) {
+    .about-image {
+        display: none;
+    }
+    .about {
+        display: block;
+        padding: 0 1rem;
+    }
+    .about-text {
+        display: flex;
+        flex-direction: column;
+        padding: 0 1rem;
+        align-items: center;
+    }
+    .about-text h1 {
+        font-size: 2rem;
+    }
+    .about-text h2 {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+    .about-text img {
+        display: block;
+        width: 100%;
+        height: auto;
+        padding-bottom: 1rem;
+    }
+
+    .about-text p {
+        font-size: 1rem;
+        text-align: justify;
+    }
+
+    .secondary-button {
+        height: 50px;
+        width: 150px;
+        margin-bottom: 2rem;
+        font-weight: 500;
+        font-size: 1rem;
+    }
+}

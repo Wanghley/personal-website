@@ -16,16 +16,17 @@
     align-items: center;
     color: #fff;
     border-radius: 24px;
-    height: 70vh;
     margin: 0 2rem;
     width: 50%;
     padding-top: 2rem;
 }
 .contact_text h1 {
-    font-size: 2rem;
+    font-size: 1.75rem;
     width: 75%;
     text-align: left;
     padding-bottom: 1rem;
+    line-height: normal;
+    text-transform: uppercase;
 }
 .contact_text h1 span {
     color: #3AAFF1;
@@ -35,8 +36,9 @@
     font-size: 1.2rem;
     width: 75%;
     text-align: left;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
     font-weight: 600;
+    line-height: normal;
 }
 .contact_text h2 span {
     color: #3AAFF1;
@@ -50,7 +52,7 @@
 }
 
 .contact_list li {
-    margin-bottom: 1rem;
+    margin-bottom: .5rem;
     padding: 1rem 1rem;
     width: 75%;
     color: #3AAFF1;
@@ -107,7 +109,7 @@
     width: 50%;
     background-color: #fff;
     border-radius: 24px;
-    height: 70vh;
+    height: fit-content;
     margin: 0 2rem;
 }
 
@@ -137,7 +139,7 @@
     border-bottom: 3px solid #3AAFF1;
     min-height: 10rem;
     font-family: "OpenSans";
-    resize: none;
+    resize: vertical;
 }
 
 .contact_button {

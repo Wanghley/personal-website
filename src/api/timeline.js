@@ -4,7 +4,7 @@ const baseURL = process.env.REACT_APP_timeline_api_url;
 
 export async function fetchTimeline(nextPage = 1, prevData = null) {
   try {
-    const url = `${baseURL}?pagination[page]=${nextPage}`;
+    const url = `${baseURL}?pagination[page]=${nextPage}&sort=Year:asc`;
     const response = await axios.get(url);
 
     const updatedData = {
@@ -17,7 +17,6 @@ export async function fetchTimeline(nextPage = 1, prevData = null) {
     // };
 
     if (response.data.meta.pagination.pageCount <= nextPage+1) { // If there are no more pages, return the data
-        console.log(updatedData.data.data);
         return updatedData.data.data;
     } else {
       return fetchTimeline(nextPage + 1, updatedData);

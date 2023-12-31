@@ -29,7 +29,7 @@ const Navbar = () => {
 
   return (
     <nav className={color?'scrolled':''}>
-      <a href='/'><img className='logo' src={logo} alt='wanghley'/></a>
+      <a href='/'><img className='logo lazyload' src={logo} alt='wanghley'/></a>
       <div className='menu'>
         <ul id='navbar' className={clicked?"#navbar active":"#navbar"}>
           <li className='menu-item'><a href='/about'>About</a></li>

@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <footer className="footer">
         <div className="footer_text">
-            <img src={logo} alt="logo" className="footer_text_logo"/>
+            <img src={logo} alt="logo" className="footer_text_logo lazyload"/>
             <p className="footer__text--p">
             &copy; {new Date().getFullYear()} Wanghley Soares Martins. All rights reserved.
             </p>

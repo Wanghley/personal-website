@@ -22,19 +22,18 @@ const TimeLine = () => {
     
     return(
         <div className='Timeline'>
-        <h1 className='Timeline-title'>Professional and personal career</h1>
+        <h1 className='Timeline-title'>Professional and personal timeline</h1>
         <h2>In the reality of my journey, I've faced pitfalls and stumbled through shadows, yet it's within those very struggles that the authenticity of my resilience emerges, painting a canvas of true strength.</h2>
         <div className='Timeline-container'>
-            <Timeline endless>
-                {/* insert all elements names from timeline data to Timeline.Item object */}
-                
-                    {timeline && timeline.map((element) => {
-                        console.log(element.attributes.Name)
-                        return(
-                            <Timeline.Item className='timeline-item'>{element.attributes.Year} <BlocksRenderer content={element.attributes.Name} /></Timeline.Item>
-                        )    
-                    })}
-            </Timeline>
+            <div className='timeline-scroll-container'>
+                <Timeline endless className='timeline-component'>
+                {timeline && timeline.map((element, index) => (
+                    <Timeline.Item key={index} className='timeline-item'>
+                    {element.attributes.Year} <BlocksRenderer content={element.attributes.Name} />
+                    </Timeline.Item>
+                ))}
+                </Timeline>
+            </div>
         </div>
     </div>
     )

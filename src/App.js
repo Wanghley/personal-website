@@ -1,18 +1,22 @@
 import './App.css';
-import { Navbar, Hero, About, Timeline, Contact, Skills,Footer, WhyMe } from './components'
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+
+import Home from './pages';
+import {Navbar, Footer} from './components';
 
 function App() {
   return (
-    <>
-    <Navbar />
-    <Hero />
-    <About />
-    <Timeline />
-    {/* <Skills /> */}
-    {/* <WhyMe /> */}
-    <Contact />
-    <Footer />
-    </>
+    <Router>
+      <Navbar/>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
 

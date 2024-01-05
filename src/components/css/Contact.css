@@ -119,6 +119,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    color: #1d1d1d;
     padding: 3rem 2.5rem;
 }
 .contact_form form input {

@@ -1,4 +1,4 @@
-import {React, useState } from 'react'
+import {React, useState, useEffect } from 'react'
 import logo from '../assets/logo-white.svg'
 import linkedin from '../assets/linkedin.svg'
 import instagram from '../assets/instagram.svg'
@@ -12,14 +12,15 @@ const Navbar = () => {
   const [clicked, setClicked] = useState(false);
   const [color, setColor] = useState(false);
 
-  // Change background color on scroll
+  useEffect(() => {
+    setColor(window.location.pathname !== '/');
+  }, []);
+
+  // Change background color on scroll, adjusting for homepage
   const changeBackground = () => {
-    if(window.scrollY >= 90){
-      setColor(true);
-    }else{
-      setColor(false);
-    }
+    setColor(window.scrollY >= 90 || window.location.pathname !== '/');
   };
+
   window.addEventListener('scroll', changeBackground);
 
   // Change menu on click

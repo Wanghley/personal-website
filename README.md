@@ -141,6 +141,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 See the [open issues](your-issues-url) for a full list of proposed features and known issues.
 
+## Tools, Libraries, and Miscellaneous
+- https://www.conventionalcommits.org/en/v1.0.0/
+
 <!-- CONTRIBUTING -->
 ## Contributing
 

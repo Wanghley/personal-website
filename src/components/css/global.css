@@ -64,3 +64,14 @@
 .secondary-button:hover{
     background-color: #2e2e2e;
 }
+
+h1 {
+    font-family: "LostinSpace";
+    font-size: 3.3rem;
+    font-weight: 300;
+}
+
+h2,h3,h4,h5,h6 {
+    font-family: "Nunito";
+    font-weight: bold;
+}

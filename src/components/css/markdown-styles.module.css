@@ -1,0 +1,127 @@
+@import url('global.css');
+
+.ReactMarkdown {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: --color-secondary;
+    padding: 1rem 12rem;
+  }
+  
+  .ReactMarkdown h1,
+  .ReactMarkdown h2,
+  .ReactMarkdown h3,
+  .ReactMarkdown h4,
+  .ReactMarkdown h5,
+  .ReactMarkdown h6 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    line-height: 1.2;
+  }
+  
+  .ReactMarkdown h1 {
+    font-size: 2em;
+  }
+  
+  .ReactMarkdown h2 {
+    font-size: 1.5em;
+  }
+  
+  .ReactMarkdown h3 {
+    font-size: 1.25em;
+  }
+  
+  .ReactMarkdown h4 {
+    font-size: 1em;
+  }
+  
+  .ReactMarkdown h5 {
+    font-size: 0.875em;
+  }
+  
+  .ReactMarkdown h6 {
+    font-size: 0.85em;
+  }
+  
+  .ReactMarkdown p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: center;
+  }
+  
+  .ReactMarkdown a {
+    color: --color-primary;
+    text-decoration: none;
+  }
+  
+  .ReactMarkdown a:hover {
+    text-decoration: underline;
+  }
+  
+  .ReactMarkdown ul,
+  .ReactMarkdown ol {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  
+  .ReactMarkdown ul li,
+  .ReactMarkdown ol li {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+  
+  .ReactMarkdown blockquote {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    padding-left: 1em;
+    border-left: 0.25em solid #dfe2e5;
+  }
+  
+  .ReactMarkdown pre {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 0.5em;
+    background-color: #f6f8fa;
+    border-radius: 3px;
+    overflow: auto;
+  }
+  
+  .ReactMarkdown code {
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+    font-size: 85%;
+    background-color: rgba(27, 31, 35, 0.05);
+}
+    
+    .ReactMarkdown img {
+        max-width: 50%;
+        display: block;
+        margin: 1rem auto;
+
+
+    }
+
+    .ReactMarkdown span{
+        /* create highlight on text with --primary-color */
+        background: var(--color-primary);
+    }
+
+    /* edit table making it responsive */
+    .ReactMarkdown table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1rem 0;
+        font-size: .5rem;
+    }
+
+/* For mobile devices */
+@media (max-width: 768px) {
+    .ReactMarkdown {
+      padding: 1rem 2rem;
+    }
+
+    .ReactMarkdown img {
+        max-width: 100%;
+    }
+  }
+

@@ -1,10 +1,13 @@
 import React from "react";
-import { Navbar, Hero, About, Timeline, Contact, Skills,Footer, WhyMe } from '../components'
- 
+import { Navbar, Hero, About, Timeline, Contact, Skills,Footer, WhyMe, AboutText } from '../components'
+
+
 const AboutPage = () => {
+    
+
     return (
         <>
-        <About />
+        <AboutText />
         <Contact />
         </>
     );

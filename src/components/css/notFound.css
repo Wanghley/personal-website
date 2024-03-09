@@ -1,0 +1,97 @@
+@import url('global.css');
+
+.notfound {
+    width: 96%;
+    height: 80vh;
+    margin: auto;
+    position: relative;
+    .notfound__wrapper {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        .notfound__text {
+            padding: 50px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            .texts {
+                h1 {
+                    font-size: 3.3rem;
+                }
+                h2 {
+                    font-size: 3.5rem;
+                    font-weight: 300;
+                }
+                p {
+                    padding: 10px 0;
+                    width: 500px;
+                }
+            }
+            button {
+                width: 200px;
+                padding: 8px;
+                background-color: var(--color-primary);
+                border: none;
+                color: white;
+                border-radius: 5px;
+                font-size: 18px;
+                cursor: pointer;
+            }
+        }
+        .notfound__img {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            padding-right: 100px;
+            width: 630px;
+            height: 530px;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+    }
+}
+
+/* mobile */
+@media (max-width: 768px) {
+    .notfound {
+        /* make div below the other */
+        height: 80vh;
+        .notfound__wrapper {
+            flex-direction: column-reverse;
+            margin-top: 3rem;
+            .notfound__text {
+                padding: 20px;
+                .texts {
+                    h1 {
+                        font-size: 2rem;  
+                    }
+                    h2 {
+                        font-size: 1.5rem;
+                    }
+                    p {
+                        width: 100%;
+                    }
+                }
+                button {
+                    width: 100%;
+                }
+            }
+            .notfound__img {
+                position: relative;
+                padding-right: 0;
+                width: 100%;
+                height: 50%;
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+}

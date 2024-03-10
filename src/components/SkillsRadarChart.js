@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
     Chart as ChartJS,
     RadialLinearScale,
@@ -100,8 +100,6 @@ const SKillRadarChart = () => {
         proficiencyPercentagesByType[type] = normalizedAverageProficiency;
     });
 
-    // console.log(proficiencyPercentagesByType)
-
     var data = {
         labels: Object.keys(proficiencyPercentagesByType),
         datasets: [{
@@ -140,12 +138,22 @@ const SKillRadarChart = () => {
           maintainAspectRatio: true,
     };
 
+    // change Radar chartjs canvas size
+    // const canvasRef = useRef(null);
+    // useEffect(() => {
+    //     const canvas = canvasRef.current;
+    //     const ctx = canvas.getContext("2d");
+    //     ctx.canvas.width = 400;
+    //     ctx.canvas.height = 400;
+    // }, []);
+
     return (
         <div>
             <Radar
+                style={{ width: '98%', margin: '0 auto' }}
                 data={data}
                 options={options}
-                style={{ width: '100%', height: 'auto'}}  
+                // use maximum width and height of the canvas to maintain aspect ratio
             />
         </div>
     )

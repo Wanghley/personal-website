@@ -6,6 +6,8 @@ import Contact from "./Contact";
 import Skills from "./Skills";
 import Footer from "./Footer";
 import WhyMe from "./WhyMe";
+import AboutText from "./About-text";
+import NotFound from "./NotFound";
 
 export {
     Navbar,
@@ -15,5 +17,7 @@ export {
     Contact,
     Skills,
     WhyMe,
-    Footer
+    Footer,
+    AboutText,
+    NotFound
 }

@@ -44,3 +44,4 @@ export async function getUniqueElements() {
     return null; // or throw e; depending on your error handling strategy
   }
 }
+
